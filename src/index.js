@@ -17,22 +17,21 @@ const cognitoAuthConfig = {
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <Provider store={store}>
-//      <App />
-//   </Provider>
-   
-// );
-
 root.render(
-  <React.StrictMode>
-    <AuthProvider {...cognitoAuthConfig}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </AuthProvider>
-  </React.StrictMode>
+  <Provider store={store}>
+     <App />
+  </Provider>
 );
+
+// root.render(
+//   <React.StrictMode>
+//     <AuthProvider {...cognitoAuthConfig}>
+//       <Provider store={store}>
+//         <App />
+//       </Provider>
+//     </AuthProvider>
+//   </React.StrictMode>
+// );
 
 
 // If you want to start measuring performance in your app, pass a function

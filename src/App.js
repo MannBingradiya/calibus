@@ -19,59 +19,27 @@ import AdminBookings from './pages/Admin/AdminBookings';
 
 function App() {
   const{loading} = useSelector(state=>state.alerts);
-  const auth = useAuth();
-  const clientId = "67lneqqnjupnq9220a09hc622m";
-  const logoutUri = "https://master.d2avvftcrnwudn.amplifyapp.com";
-  const cognitoDomain = "https://eu-north-18xrpoekdk.auth.eu-north-1.amazoncognito.com";
+  // const auth = useAuth();
+  // const clientId = "67lneqqnjupnq9220a09hc622m";
+  // const logoutUri = "https://master.d2avvftcrnwudn.amplifyapp.com";
+  // const cognitoDomain = "https://eu-north-18xrpoekdk.auth.eu-north-1.amazoncognito.com";
 
-  const signOutRedirect = () => {
-    window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
-  };
+  // const signOutRedirect = () => {
+  //   window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
+  // };
 
-  if (auth.isLoading) {
-    return <div>Checking login status...</div>;
-  }
+  // if (auth.isLoading) {
+  //   return <div>Checking login status...</div>;
+  // }
 
-  if (auth.error) {
-    return <div>Error in authentication: {auth.error.message}</div>;
-  }
+  // if (auth.error) {
+  //   return <div>Error in authentication: {auth.error.message}</div>;
+  // }
 
   return (
     <div>
       {loading && <Loader />}
-
       <BrowserRouter>
-        <Routes>
-          {/* Protected Routes */}
-          {auth.isAuthenticated ? (
-            <>
-              <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-              <Route path="/book-now/:id" element={<ProtectedRoute><BookNow /></ProtectedRoute>} />
-              <Route path="/bookings" element={<ProtectedRoute><Bookings /></ProtectedRoute>} />
-
-              <Route path="/admin/buses" element={<ProtectedRoute><AdminBuses /></ProtectedRoute>} />
-              <Route path="/admin/users" element={<ProtectedRoute><AdminUsers /></ProtectedRoute>} />
-              <Route path="/admin/bookings" element={<ProtectedRoute><AdminBookings /></ProtectedRoute>} />
-            </>
-          ) : (
-            <>
-              {/* Public Routes (visible only when not logged in) */}
-              <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
-              <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
-            </>
-          )}
-        </Routes>
-
-        {/* Optional: show sign in/out buttons for testing */}
-        <div style={{ position: 'fixed', bottom: 10, left: 10 }}>
-          {!auth.isAuthenticated ? (
-            <button onClick={() => auth.signinRedirect()}>🔐 Sign In</button>
-          ) : (
-            <button onClick={() => signOutRedirect()}>🚪 Sign Out</button>
-          )}
-        </div>
-      </BrowserRouter>
-      {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>} />
           <Route path="/book-now/:id" element={<ProtectedRoute><BookNow/></ProtectedRoute>} />
@@ -84,7 +52,7 @@ function App() {
           <Route path="/register" element={<PublicRoute><Register/></PublicRoute>} />
           <Route path='/login' element = {<PublicRoute><Login/></PublicRoute>} />
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
     </div>
   );
 }
