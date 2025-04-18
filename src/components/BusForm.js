@@ -37,11 +37,11 @@ function BusForm( {
             console.log('Formatted values:', formattedValues);
             let response = null;
             if(type==='add'){
-                response = await axiosInstance.post('/api/buses/add-bus',values,
+                response = await axiosInstance.post(`${process.env.REACT_APP_API_URL}/api/buses/add-bus`,values,
                    // journeyDate : moment(values.journeyDate).format("dd-mm-yyyy"),
                 );
             }else{
-                response = await axiosInstance.post("/api/buses/update-bus",{
+                response = await axiosInstance.post(`${process.env.REACT_APP_API_URL}/api/buses/update-bus`,{
                     ...values,
                     _id: selectedBus._id,
                 });

@@ -15,7 +15,7 @@ function ProtectedRoute({children}) {
     const validateToken = async ()=>{
         try{
             dispatch(ShowLoading());
-            const response = await axios.post("/api/users/get-user-by-id",{},{
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/users/get-user-by-id`,{},{
                 headers:{
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },

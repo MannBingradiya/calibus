@@ -18,7 +18,7 @@ function BookNow() {
   const getBus = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post("/api/buses/get-bus-by-id", {
+      const response = await axiosInstance.post(`${process.env.REACT_APP_API_URL}/api/buses/get-bus-by-id`, {
         _id: params.id
       });
       dispatch(HideLoading());
@@ -36,7 +36,7 @@ function BookNow() {
     async ({transactionId}) => {
       try {
         dispatch(ShowLoading());
-        const response = await axiosInstance.post("/api/bookings/book-seat", {
+        const response = await axiosInstance.post(`${process.env.REACT_APP_API_URL}/api/bookings/book-seat`, {
           bus: bus._id,
           seats: selectedSeats,
           transactionId
@@ -58,7 +58,7 @@ function BookNow() {
   const onToken = async (token) => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post("/api/bookings/make-payment", {
+      const response = await axiosInstance.post(`${process.env.REACT_APP_API_URL}/api/bookings/make-payment`, {
         token,
         amount: selectedSeats.length * bus.fare *100,
       });
@@ -84,7 +84,7 @@ function BookNow() {
       const amount = selectedSeats.length * bus.fare;
 
       // 1. Create Razorpay order from backend
-      const response = await axiosInstance.post("/api/bookings/create-order", { amount });
+      const response = await axiosInstance.post(`${process.env.REACT_APP_API_URL}/api/bookings/create-order`, { amount });
 
       dispatch(HideLoading());
 

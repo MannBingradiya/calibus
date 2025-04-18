@@ -18,7 +18,7 @@ function Bookings() {
     const getBookings = async() =>{
         try{
           dispatch(ShowLoading());
-          const response = await axiosInstance.post("/api/bookings/get-bookings-by-user-id", {});
+          const response = await axiosInstance.post(`${process.env.REACT_APP_API_URL}/api/bookings/get-bookings-by-user-id`, {});
           dispatch(HideLoading());
           if(response.data.success){
             const mappedData = response.data.data.map((booking) =>{

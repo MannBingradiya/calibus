@@ -22,7 +22,7 @@ function Home() {
     }
     try {
       dispatch(ShowLoading());
-      const response = await axios.post("/api/buses/get-all-buses",
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/buses/get-all-buses`,
        { filters: tempFilters },
        {
         headers:{
