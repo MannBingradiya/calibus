@@ -159,7 +159,7 @@ function BookNow() {
               <h1 className='text-xl'>
                 Selected Seats:  {selectedSeats.join(",")}
               </h1>
-              <h1 className='text-xl mt-2'>Fare : ${bus.fare * selectedSeats.length}</h1>
+              <h1 className='text-xl mt-2'>Fare : Rs.{bus.fare * selectedSeats.length}</h1>
               <hr />
               <button
                 className={`primary-btn ${selectedSeats.length === 0 && "disabled-btn"}`}
