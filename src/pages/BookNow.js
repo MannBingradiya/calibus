@@ -147,7 +147,7 @@ function BookNow() {
 
             <div className='flex flex-col gap-2'>
               <p className='text-md'>Journey Date:{bus.journeyDate}</p>
-              <p className='text-md'>Fare: ${bus.fare}</p>
+              <p className='text-md'>Fare: Rs.{bus.fare}</p>
               <p className='text-md'>Departure Time: {bus.departure}</p>
               <p className='text-md'>Arrival Time: {bus.arrival}</p>
               <p className='text-md'>Capacity: {bus.capacity}</p>
