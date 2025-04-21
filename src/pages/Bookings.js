@@ -131,7 +131,7 @@ function Bookings() {
         <hr />
         <p>
         <span>Total Amount:</span>{" "}
-            {selectedBooking.fare*selectedBooking.seats.length}$
+            {selectedBooking.fare*selectedBooking.seats.length}Rs.
         </p>
         </div>
         
